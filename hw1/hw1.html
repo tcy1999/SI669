@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>10 Second Timer</title>
+</head>
+
+<body>
+  <label>Set Counterdown timer (in seconds): </label><input id='second' type="text" value='7'>
+  <h1 id="timer">Click to start</h1>
+  <button type="button" onclick="init()">Restart</button>
+  <script>
+    var count;
+    var timer;
+    var header = document.getElementById('timer');
+    function init() {
+      clearInterval(timer);
+      count = document.getElementById('second').value;
+      header.innerHTML = count;
+      timer = setInterval(countDown, 1000);
+    }
+    function countDown() {
+      count--;
+      if (count === 0){
+        header.innerHTML = 'Timer done!';
+        clearInterval(timer);
+      }
+      else {
+        header.innerHTML = count;
+      }
+    }
+  </script>
+  
+</body>
+</html>
